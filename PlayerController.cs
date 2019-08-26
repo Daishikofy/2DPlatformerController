@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -58,21 +58,18 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 impulse = new Vector2(0, jumpHeight);
         rigidbody.AddForce(impulse, ForceMode2D.Impulse);
-        Debug.Log("WHEEE");
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         ColliderDistance2D distance = collision.collider.Distance(collider);
-        if (collision.transform.CompareTag("Ground"))
+        if (collision.transform.CompareTag("Ground") && Vector2.Angle(distance.normal, Vector2.up) < 45) 
             onGround = true;     
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        ColliderDistance2D distance = collision.collider.Distance(collider);
         if (collision.transform.CompareTag("Ground"))
             onGround = false;
     }
 }
-
