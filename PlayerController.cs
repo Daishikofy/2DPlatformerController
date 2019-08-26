@@ -43,13 +43,13 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         if (onGround && !isJumping)
-            rigidbody.MovePosition(rigidbody.position + playerMovement * Time.deltaTime);      
+            rigidbody.MovePosition(rigidbody.position + playerMovement * Time.deltaTime);
+        
         else
         {
             if (isJumping)
                 isJumping = false;
             rigidbody.AddForce(playerMovement);
-            Debug.Log("Player movement : " + playerMovement);
         }
             
     }
@@ -63,8 +63,11 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         ColliderDistance2D distance = collision.collider.Distance(collider);
-        if (collision.transform.CompareTag("Ground") && Vector2.Angle(distance.normal, Vector2.up) < 45) 
-            onGround = true;     
+        if (collision.transform.CompareTag("Ground") && Vector2.Angle(distance.normal, Vector2.up) < 45)
+        {
+            onGround = true;
+            rigidbody.velocity = Vector2.zero;
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -73,3 +76,4 @@ public class PlayerController : MonoBehaviour
             onGround = false;
     }
 }
+
