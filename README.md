@@ -18,3 +18,8 @@ Thise one is the script you should use for your game. It is kinda small and work
   * 1 means your character will be able to move mid-air as freely as on the ground.
 
 The ground detection could be improve by having a specific collider used to detect whether your character is on a platform or not. This collider should be placed on the base of your sprite.
+
+## Player Controller 3
+*__Documentation in cnstruction__*
+Added a ground reactivity to add some controle over the characteristics of the movimentation
+Changed the way ground is detected or a more scripting newbie friendly version and more robuste to.
