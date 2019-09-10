@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     private Collider2D collider2d;
 
     private Rigidbody2D rigidbody2d;
+    private SpriteRenderer spriteRenderer;
 
     private Vector2 playerMovement;
     private bool onGround = false;
@@ -28,6 +29,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         remainingJumps = extraJumps;
     }
 
@@ -39,6 +41,8 @@ public class PlayerController : MonoBehaviour
          * Store in the playerMovement vector which will be (x , velocity)
       */
         playerMovement.x = Input.GetAxisRaw("Horizontal") * speed;
+        if (playerMovement.x != 0 || !playerMovement.x && spriteRenderer.flipY())
+            spriteRenderer.flipY(playerMovement);
 
         /*
            * The player can only jump if his character touches the "Ground"
