@@ -23,3 +23,13 @@ The ground detection could be improve by having a specific collider used to dete
 *__Documentation in cnstruction__*
 Added a ground reactivity to add some controle over the characteristics of the movimentation
 Changed the way ground is detected or a more scripting newbie friendly version and more robuste to.
+
+* **Speed:** The speed your character will have on the ground.
+* **Jump Height:** The force of your character's jump, the higher the value, the higher te jump.
+* **Extra Jumps :** Numbers of mid-air jumps the player posess.
+* **Air Reactivity:** Value between 0 and 1
+  * 0 means your character wont be able to change it's direction mid-air.
+  * 1 means your character will be able to move mid-air as freely as on the ground.
+* **Ground Reactivity:** Value between 0 and 1
+  * 0 means your character wont be able to move at all.
+  * 1 means your character will have really fast reactions with no acceleration nor decceleration time.
